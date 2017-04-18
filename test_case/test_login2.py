@@ -33,7 +33,7 @@ class TestLogin(unittest.TestCase):
         # 登录
         login.login(self,username,password)
         # 获取断言信息进行断言
-        text=driver.find_element_by_xpath('//*[@class="ferrorhead"]')
+        text=driver.find_element_by_xpath('//*[@class="m-nerror err_email"]').text
         self.assertEqual(text,prompt_info)
 
 
@@ -46,7 +46,33 @@ class TestLogin(unittest.TestCase):
         password=logins[0].getAttribute("password")
         prompt_info=logins[0].firstChild.data
         login.login(self,username,password)
-        text=driver.find_element_by_xpath('//*[@class="ferrorhead"]')
+        text=driver.find_element_by_xpath('//*[@class="m-nerror err_password"]').text
+        self.assertEqual(prompt_info,text)
+
+
+    # 用户名为空、只输入密码
+    def uesr_null(self):
+        driver=self.driver
+        driver.get(self.base_url)
+        logins=root.getElementsByTagName("user_null")
+        username=logins[0].getAttribute("username")
+        password=logins[0].getAttribute("password")
+        prompt_info=logins[0].firstChild.data
+        login.login(self,username,password)
+        text=driver.find_element_by_xpath('//*[@class="m-nerror err_email"]').text
+        self.assertEqual(prompt_info,text)
+
+
+    # 用户名密码错误
+    def error(self):
+        driver=self.driver
+        driver.get(self.base_url)
+        logins=root.getElementsByTagName("error")
+        username=logins[0].getAttribute("username")
+        password=logins[0].getAttribute("password")
+        prompt_info=logins[0].firstChild.data
+        login.login(self,username,password)
+        text=driver.find_element_by_xpath('//*[@class="m-nerror"]').text
         self.assertEqual(prompt_info,text)
 
 
