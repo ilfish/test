@@ -41,7 +41,7 @@ class TestLogin(unittest.TestCase):
     def pawd_null(self):
         driver=self.driver
         driver.get(self.base_url)
-        logins=root.getElementsByTagName('pawd_url')
+        logins=root.getElementsByTagName('pawd_null')
         username=logins[0].getAttribute("username")
         password=logins[0].getAttribute("password")
         prompt_info=logins[0].firstChild.data
@@ -51,7 +51,7 @@ class TestLogin(unittest.TestCase):
 
 
     # 用户名为空、只输入密码
-    def uesr_null(self):
+    def user_null(self):
         driver=self.driver
         driver.get(self.base_url)
         logins=root.getElementsByTagName("user_null")
