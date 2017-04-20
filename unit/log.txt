@@ -1,0 +1,7 @@
+..
+----------------------------------------------------------------------
+Ran 2 tests in 21.510s
+
+OK
+<unittest.suite.TestSuite tests=[<test_baidu.MyTest testMethod=test_baiu>]>
+<unittest.suite.TestSuite tests=[<test_baidu.MyTest testMethod=test_baiu>, <test_youdao.MyTest testMethod=test_youdao>]>
